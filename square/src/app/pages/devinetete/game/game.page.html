@@ -1,0 +1,21 @@
+<body style="background-color: black;">
+  <div style="border-style: solid; border-color: black; border-width: 2px; margin: 20px; border-radius: 25px;">
+    <div class="row" style="margin: 20px;">
+      <center>
+        <img (click)="ToMenu()" src="../../../assets/logo-devinetete.jpg" style="border-radius: 25px;"/>
+      </center>
+    </div>
+    <div class="vertical-center" >
+      <center>
+        <label style="color: white; font-size: xxx-large; width: 100%;">{{currentPlayer}} donne le mot</label>
+        <br/>
+        <label style="color: green; font-size: xxx-large;">{{word}}</label>
+        <br/>
+        <label style="color: white; font-size: xxx-large; width: 100%;">à {{targetPlayer}}</label>
+      </center>
+    </div>
+    <div class="vertical-bot">
+        <button (click)="Next()" style="color: white; background-color: transparent; font-size: xxx-large;">{{buttonText}}</button>
+    </div>
+  </div>   
+</body>

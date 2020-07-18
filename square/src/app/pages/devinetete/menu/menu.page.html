@@ -1,0 +1,107 @@
+
+  <body style="background-color: black;">
+    
+    <div style="border-style: solid; border-color: black; border-width: 2px; margin: 20px; border-radius: 25px;">
+       <div class="row" style="margin: 20px;">
+
+    <center>
+      <img src="../../../assets/logo-devinetete.jpg" style="border-radius: 25px;"/>
+    </center>
+  </div> 
+
+  
+<center>
+  <ion-item-divider style="background-color: transparent;">
+    <ion-label style="font-size: large; color: white;"> Liste des joueurs :</ion-label>
+  </ion-item-divider>    
+
+    <form  
+      style="background-color: transparent;"
+      margin-left="10px"
+      margin-right="10px"
+      [formGroup]="form" 
+      (ngSubmit)="manage(form.value)">
+      <ion-list margin-bottom style="
+      margin: 25px; background-color: transparent;">          
+      <div 
+        formArrayName="players" 
+        margin-bottom> 
+            <section 
+                [formGroupName]="i" 
+                *ngFor="let tech of form.controls.players.controls; let i = index">
+                <ion-item-group >
+                   <ion-item color="#000000" >
+                      <ion-label floating style="color: white;">Joueur {{i+1}} :</ion-label>   
+                      <ion-input 
+                        style="background-color: transparent; color: white;"
+                        type="text"
+                        maxlength="50"
+                        formControlName="name"></ion-input>
+                   </ion-item>  
+                   
+    
+                   <span 
+                      float-right 
+                      ion-button 
+                      icon-left 
+                      clear  
+                      *ngIf="form.controls.players.length > 1" 
+                      (click)="removeInputField(i)">
+                      <ion-icon name="close" style="color: white; font-size: xx-large;"></ion-icon>
+                   </span>  
+                </ion-item-group>    
+             </section>
+          </div>
+ 
+          <span 
+             ion-button 
+             float-left 
+             icon-left 
+             clear 
+             (click)="addNewInputField()">
+                <ion-icon name="add" style="color: white;font-size: xx-large;"></ion-icon>
+          </span> 
+       </ion-list>
+ 
+
+       <ion-item-divider style="background-color: transparent;">
+        <ion-label style="font-size: large; color: white;">
+          Choix du thème
+        </ion-label>
+      </ion-item-divider>      
+
+      <center>
+        <select ion-button style="margin: 25px; width: 50%; font-size: medium; background-color: transparent; border-color: transparent; color: white;" 
+        [formGroup]="form" formControlName="theme">
+          <option value="easy" style="color: black; font-size: medium;">Tout (facile)</option>
+          <option value="hard" style="color: black; font-size: medium;">Tout (difficile)</option>
+          <option value="action" style="color: black; font-size: medium;">Actions</option>
+          <option value="animal" style="color: black; font-size: medium;">Animaux</option>
+          <option value="people" style="color: black; font-size: medium;">Célébrités</option>
+          <option value="expression" style="color: black; font-size: medium;">Expressions</option>
+          <option value="herospeople" style="color: black; font-size: medium;">Héros (dessins animés)</option>
+          <option value="moviepeople" style="color: black; font-size: medium;">Héros (films)</option>
+          <option value="historicpeople" style="color: black; font-size: medium;">Personnages historiques</option>
+          <option value="object" style="color: black; font-size: medium;">Objets</option>
+        </select>
+     </center>
+
+
+
+       <center>
+          <button 
+          class="vertical-bot"
+           ion-button 
+           block
+           style="font-size: x-large; background-color: tra; color: black; margin: 25px;"        
+           color="primary" 
+           text-center >C'EST PARTI !</button>
+       </center>
+    </form>
+
+  </center>
+    </div>
+
+ 
+ 
+  </body>
